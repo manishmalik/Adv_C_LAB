@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-void r(int **temp, int n)
+void r(int **temp, int n)	// for generating the random number using time seed.
 {
 	int num, i, *a,*t;
 	t = *temp;
@@ -19,7 +19,8 @@ void r(int **temp, int n)
 	}
 	free(a);
 }
-int checksum(int *temp, int n)
+/*check if the random list generated has already been used or not ? every bit have some weight , it is ensured no two randomly genrated list have the same numbers.*/
+int checksum(int *temp, int n)  	
 {
 	int i, t = 1, sum = 0;
 	for (i = 0; i < n; i++)
@@ -29,7 +30,7 @@ int checksum(int *temp, int n)
 	}
 	return sum;
 }
-float d(int *l, int *s, int n, int m)
+float d(int *l, int *s, int n, int m) // Finding the distance with all the sets of permutations.
 {
 	int i, j,sum=0;
 	float d;
@@ -48,7 +49,7 @@ int main()
 	int n, m, i, j, sum, i1;
 	time_t t;
 	srand((unsigned int)&t);
-	int *l, *temp,*l1,*s;
+	int *l, *temp,*l1,*s;		// l: matrix containg m permutations and n numbers each ,temp: A particular set of permutation,l1: for checking for the repetition of set,s:shortest distance set.
 	float dis1, dis;
 	printf("\n Enter the value of m and n : ");
 	scanf_s("%d %d", &m, &n);
